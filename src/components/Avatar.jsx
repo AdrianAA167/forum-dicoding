@@ -9,16 +9,18 @@ function Avatar({ src, name, size = 40 }) {
     flexShrink: 0,
   };
 
+  const handleError = (e) => {
+    // eslint-disable-next-line no-param-reassign
+    e.currentTarget.style.display = 'none';
+  };
+
   if (src) {
     return (
-      // eslint-disable-next-line jsx-a11y/alt-text
       <img
         src={src}
         alt={name}
         style={style}
-        onError={(e) => {
-          e.target.style.display = 'none';
-        }}
+        onError={handleError}
       />
     );
   }

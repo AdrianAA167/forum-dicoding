@@ -44,6 +44,22 @@ function ThreadDetailPage() {
     dispatch(asyncAddComment({ threadId, content }));
   }
 
+  function handleUpVote() {
+    dispatch(asyncToggleUpVoteThreadDetail(threadId));
+  }
+
+  function handleDownVote() {
+    dispatch(asyncToggleDownVoteThreadDetail(threadId));
+  }
+
+  function handleUpVoteComment(commentId) {
+    dispatch(asyncToggleUpVoteComment({ threadId, commentId }));
+  }
+
+  function handleDownVoteComment(commentId) {
+    dispatch(asyncToggleDownVoteComment({ threadId, commentId }));
+  }
+
   return (
     <div className="page page--thread-detail">
       <article className="thread-detail">
@@ -66,8 +82,8 @@ function ThreadDetailPage() {
           downVotesCount={downVotesBy.length}
           isUpVoted={isUpVoted}
           isDownVoted={isDownVoted}
-          onUpVote={() => dispatch(asyncToggleUpVoteThreadDetail(threadId))}
-          onDownVote={() => dispatch(asyncToggleDownVoteThreadDetail(threadId))}
+          onUpVote={handleUpVote}
+          onDownVote={handleDownVote}
         />
       </article>
 
@@ -78,12 +94,8 @@ function ThreadDetailPage() {
         <CommentInput onSubmit={handleAddComment} disabled={!authUser} />
         <CommentList
           comments={comments}
-          onUpVoteComment={(commentId) => dispatch(
-            asyncToggleUpVoteComment({ threadId, commentId }),
-          )}
-          onDownVoteComment={(commentId) => dispatch(
-            asyncToggleDownVoteComment({ threadId, commentId }),
-          )}
+          onUpVoteComment={handleUpVoteComment}
+          onDownVoteComment={handleDownVoteComment}
         />
       </section>
     </div>

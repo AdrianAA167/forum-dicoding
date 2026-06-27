@@ -17,4 +17,4 @@ function asyncPopulateLeaderboards() {
   };
 }
 
-export { asyncPopulateLeaderboards };
+export default asyncPopulateLeaderboards;
