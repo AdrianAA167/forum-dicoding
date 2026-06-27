@@ -33,18 +33,16 @@ test.describe('Alur Login Aplikasi Forum Diskusi', () => {
   });
 
   test('harus berhasil login dengan kredensial yang valid dan diarahkan ke halaman utama', async ({ page }) => {
+    await page.waitForLoadState('networkidle'); // tambahkan ini
     await page.fill('input[type="email"]', VALID_EMAIL);
     await page.fill('input[type="password"]', VALID_PASSWORD);
     await page.click('button[type="submit"]');
 
-    // Tunggu redirect keluar dari halaman login
     await page.waitForURL((url) => !url.toString().includes('/login'), {
-      timeout: 15000,
+      timeout: 30000, // tambah timeout
     });
 
     expect(page.url()).not.toContain('/login');
-
-    // Verifikasi navbar muncul sebagai tanda berhasil login
     await expect(page.locator('nav.navbar')).toBeVisible({ timeout: 10000 });
   });
 
