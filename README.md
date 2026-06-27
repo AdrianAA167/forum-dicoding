@@ -4,7 +4,7 @@ Aplikasi forum diskusi berbasis React dengan fitur lengkap termasuk autentikasi,
 
 ## 🚀 Live Demo
 
-**URL Vercel:** _(Isi dengan URL Vercel kamu setelah deploy, contoh: https://forum-diskusi-app.vercel.app)_
+**URL Vercel:** _([Isi dengan URL Vercel kamu setelah deploy, contoh: https://forum-diskusi-app.vercel.app](https://forum-dicoding-three.vercel.app/))_
 
 ## ✨ Fitur
 
