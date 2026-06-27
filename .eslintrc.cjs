@@ -20,7 +20,7 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/extensions': ['error', 'ignorePackages', { js: 'never', jsx: 'never' }],
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: ['vite.config.js', '**/*.test.js', '**/*.test.jsx', '**/__tests__/**'] }],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: ['vite.config.js', '**/*.test.js', '**/*.test.jsx', '**/__tests__/**', 'e2e/**', '**/*.spec.js', '**/*.spec.jsx'] }],
     'no-underscore-dangle': 'off',
   },
   settings: {

@@ -19,22 +19,22 @@ function createAuthHeader() {
   return { Authorization: `Bearer ${accessToken}` };
 }
 
-const api = axios.create({ baseURL: BASE_URL });
+const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 async function register({ name, email, password }) {
-  const response = await api.post('/register', { name, email, password });
+  const response = await axiosInstance.post('/register', { name, email, password });
   const { data } = response.data;
   return data.user;
 }
 
 async function login({ email, password }) {
-  const response = await api.post('/login', { email, password });
+  const response = await axiosInstance.post('/login', { email, password });
   const { data } = response.data;
   return data.token;
 }
 
 async function getOwnProfile() {
-  const response = await api.get('/users/me', {
+  const response = await axiosInstance.get('/users/me', {
     headers: createAuthHeader(),
   });
   const { data } = response.data;
@@ -42,25 +42,25 @@ async function getOwnProfile() {
 }
 
 async function getAllUsers() {
-  const response = await api.get('/users');
+  const response = await axiosInstance.get('/users');
   const { data } = response.data;
   return data.users;
 }
 
 async function getAllThreads() {
-  const response = await api.get('/threads');
+  const response = await axiosInstance.get('/threads');
   const { data } = response.data;
   return data.threads;
 }
 
 async function getThreadDetail(threadId) {
-  const response = await api.get(`/threads/${threadId}`);
+  const response = await axiosInstance.get(`/threads/${threadId}`);
   const { data } = response.data;
   return data.detailThread;
 }
 
 async function createThread({ title, body, category }) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     '/threads',
     { title, body, category },
     { headers: createAuthHeader() },
@@ -70,7 +70,7 @@ async function createThread({ title, body, category }) {
 }
 
 async function createComment({ threadId, content }) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/comments`,
     { content },
     { headers: createAuthHeader() },
@@ -80,7 +80,7 @@ async function createComment({ threadId, content }) {
 }
 
 async function upVoteThread(threadId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/up-vote`,
     {},
     { headers: createAuthHeader() },
@@ -90,7 +90,7 @@ async function upVoteThread(threadId) {
 }
 
 async function downVoteThread(threadId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/down-vote`,
     {},
     { headers: createAuthHeader() },
@@ -100,7 +100,7 @@ async function downVoteThread(threadId) {
 }
 
 async function neutralizeThreadVote(threadId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/neutral-vote`,
     {},
     { headers: createAuthHeader() },
@@ -110,7 +110,7 @@ async function neutralizeThreadVote(threadId) {
 }
 
 async function upVoteComment(threadId, commentId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/comments/${commentId}/up-vote`,
     {},
     { headers: createAuthHeader() },
@@ -120,7 +120,7 @@ async function upVoteComment(threadId, commentId) {
 }
 
 async function downVoteComment(threadId, commentId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/comments/${commentId}/down-vote`,
     {},
     { headers: createAuthHeader() },
@@ -130,7 +130,7 @@ async function downVoteComment(threadId, commentId) {
 }
 
 async function neutralizeCommentVote(threadId, commentId) {
-  const response = await api.post(
+  const response = await axiosInstance.post(
     `/threads/${threadId}/comments/${commentId}/neutral-vote`,
     {},
     { headers: createAuthHeader() },
@@ -140,7 +140,7 @@ async function neutralizeCommentVote(threadId, commentId) {
 }
 
 async function getLeaderboards() {
-  const response = await api.get('/leaderboards');
+  const response = await axiosInstance.get('/leaderboards');
   const { data } = response.data;
   return data.leaderboards;
 }

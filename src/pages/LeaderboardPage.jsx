@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import LeaderboardItem from '../components/LeaderboardItem';
-import { asyncPopulateLeaderboards } from '../states/leaderboards/thunk';
+import asyncPopulateLeaderboards from '../states/leaderboards/thunk';
 
 function LeaderboardPage() {
   const dispatch = useDispatch();
