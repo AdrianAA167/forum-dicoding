@@ -26,14 +26,13 @@ const fakeThread = {
   downVotesBy: ['user-3'],
 };
 
-function renderThreadItem(props = {}) {
+function renderThreadItem({ thread = fakeThread, ownerName = 'User Pertama', ownerAvatar = '' } = {}) {
   return render(
     <MemoryRouter>
       <ThreadItem
-        thread={fakeThread}
-        ownerName="User Pertama"
-        ownerAvatar=""
-        {...props}
+        thread={thread}
+        ownerName={ownerName}
+        ownerAvatar={ownerAvatar}
       />
     </MemoryRouter>,
   );

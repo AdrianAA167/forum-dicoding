@@ -11,7 +11,6 @@ function Avatar({ src, name, size = 40 }) {
 
   if (src) {
     return (
-      // eslint-disable-next-line jsx-a11y/alt-text
       <img
         src={src}
         alt={name}

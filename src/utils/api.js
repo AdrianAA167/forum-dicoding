@@ -145,7 +145,7 @@ async function getLeaderboards() {
   return data.leaderboards;
 }
 
-const api_ = {
+const api = {
   putAccessToken,
   getAccessToken,
   removeAccessToken,
@@ -166,4 +166,4 @@ const api_ = {
   getLeaderboards,
 };
 
-export default api_;
+export default api;
