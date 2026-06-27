@@ -22,6 +22,7 @@ module.exports = {
     'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
     'import/no-extraneous-dependencies': ['error', { devDependencies: ['vite.config.js', '**/*.test.js', '**/*.test.jsx', '**/__tests__/**', 'e2e/**', '**/*.spec.js', '**/*.spec.jsx'] }],
     'no-underscore-dangle': 'off',
+    'react/jsx-no-bind': 'off',  // tambahkan ini
   },
   settings: {
     'import/resolver': {
